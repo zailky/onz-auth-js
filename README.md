@@ -13,6 +13,6 @@ or
 
 ```html
 <script
-  src="https://unpkg.com/cotter@1.0.0/lib/index.js"
+  src="https://unpkg.com/onz-auth@1.0.0/lib/index.js"
 ></script>
 ```
