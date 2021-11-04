@@ -3,17 +3,16 @@ plugins:
   - "@semantic-release/release-notes-generator"
   - - "@semantic-release/changelog"
     - changelogFile: CHANGELOG.md
+  - - "@semantic-release/exec"
+    - verifyReleaseCmd: "echo ${nextRelease.version} > VERSION.txt"
+  - "@semantic-release/npm"
   - - "@semantic-release/git"
     - "assets": 
       - package.json
       - package-lock.json
       - "CHANGELOG.md"
-      - "VERSION.txt"
       "message": |-
-        chore(release): ${nextRelease.version} ${nextRelease.notes}
-  - - "@semantic-release/exec"
-    - verifyReleaseCmd: "echo ${nextRelease.version} > VERSION.txt"
-  - "@semantic-release/npm"
+        chore(release): ${nextRelease.version} ${nextRelease.notes}  
   - "@semantic-release/github"
 branches:
   - "main"

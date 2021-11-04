@@ -4,8 +4,7 @@
   "description": "Onz Auth Javascript SDK",
   "main": "lib/index.js",
   "scripts": {
-    "test": "\"echo \\\"Error: no test specified\\\" && exit 1\"",
-    "semantic-release": "semantic-release"
+    "test": "\"echo \\\"Error: no test specified\\\" && exit 1\""
   },
   "repository": {
     "type": "git",
@@ -27,10 +26,6 @@
   },
   "homepage": "https://github.com/zailky/onz-auth-js#readme",
   "devDependencies": {
-    "@semantic-release/changelog": "^5.0.1",
-    "@semantic-release/exec": "^5.0.0",
-    "@semantic-release/git": "^9.0.1",
-    "semantic-release": "^17.4.4"
   },
   "dependencies": {
     "@semantic-release/gitlab": "^7.0.4"
