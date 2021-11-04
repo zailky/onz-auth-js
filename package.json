@@ -27,9 +27,12 @@
   },
   "homepage": "https://github.com/zailky/onz-auth-js#readme",
   "devDependencies": {
-      "@semantic-release/exec": "^5.0.0",
-      "semantic-release": "^17.4.4",
-      "@semantic-release/changelog": "^5.0.1",
-      "@semantic-release/git": "^9.0.0"
+    "@semantic-release/changelog": "^5.0.1",
+    "@semantic-release/exec": "^5.0.0",
+    "@semantic-release/git": "^9.0.1",
+    "semantic-release": "^17.4.4"
+  },
+  "dependencies": {
+    "@semantic-release/gitlab": "^7.0.4"
   }
 }
