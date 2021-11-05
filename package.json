@@ -2,7 +2,7 @@
   "name": "onz-auth",
   "version": "1.0.3",
   "description": "Onz Auth Javascript SDK",
-  "main": "dist/onz-auth-js-sdk.js",
+  "main": "dist/onz-auth-js-sdk.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run clean && webpack --mode=development",
@@ -46,9 +46,6 @@
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.0",
-    "@semantic-release/changelog": "^6.0.1",
-    "@semantic-release/exec": "^6.0.2",
-    "@semantic-release/git": "^10.0.1",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.2.3",
     "babel-preset-env": "^1.7.0",
