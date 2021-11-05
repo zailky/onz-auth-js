@@ -12,7 +12,5 @@ yarn add onz-auth
 or
 
 ```html
-<script
-  src="https://unpkg.com/onz-auth@1.0.0/lib/index.js"
-></script>
+<script src="https://unpkg.com/onz-auth@1.0.1/lib/index.js"></script>
 ```
