@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/zailky/onz-auth-js/compare/v1.0.0...v1.0.1) (2021-11-05)
+
+
+### Bug Fixes
+
+* **test:** initial skeleton ([a451ae5](https://github.com/zailky/onz-auth-js/commit/a451ae52a5fd5d089641fcfa07d05c898d7c89ae))
+
 # 1.0.0 (2021-11-04)
 
 
