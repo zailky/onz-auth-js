@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/zailky/onz-auth-js/compare/v1.0.2...v1.0.3) (2021-11-05)
+
+
+### Bug Fixes
+
+* **build:** added minified files and chunks ([0408345](https://github.com/zailky/onz-auth-js/commit/0408345424f4501d0f3ab3bf8007bb9487ac55cf))
+
 ## [1.0.2](https://github.com/zailky/onz-auth-js/compare/v1.0.1...v1.0.2) (2021-11-05)
 
 
