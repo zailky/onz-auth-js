@@ -8,6 +8,7 @@ plugins:
   - "@semantic-release/npm"
   - - "@semantic-release/git"
     - "assets": 
+      - "dist/**/*.{js,css}"
       - package.json
       - package-lock.json
       - "CHANGELOG.md"

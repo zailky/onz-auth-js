@@ -4,7 +4,10 @@
   "description": "Onz Auth Javascript SDK",
   "main": "lib/index.js",
   "scripts": {
-    "test": "\"echo \\\"Error: no test specified\\\" && exit 1\""
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run clean && webpack --mode=development",
+    "clean": "rimraf dist",
+    "build": "npm run clean && webpack"
   },
   "repository": {
     "type": "git",
@@ -24,10 +27,31 @@
   "bugs": {
     "url": "https://github.com/zailky/onz-auth-js/issues"
   },
+  "files": [
+    "dist"
+  ],
+  "browserslist": [
+    "IE >= 9",
+    "chrome >= 27",
+    "firefox >= 30",
+    "safari >= 5",
+    "opera >= 23"
+  ],
+  "readmeFilename": "README.md",
   "homepage": "https://github.com/zailky/onz-auth-js#readme",
-  "devDependencies": {
-  },
   "dependencies": {
-    "@semantic-release/gitlab": "^7.0.4"
+    "axios": "^0.24.0",
+    "webpack-cli": "^4.9.1",
+    "zoid": "^9.0.82"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.3",
+    "babel-preset-env": "^1.7.0",
+    "process": "^0.11.10",
+    "webpack": "^5.61.0",
+    "webpack-node-externals": "^3.0.0"
   }
 }
