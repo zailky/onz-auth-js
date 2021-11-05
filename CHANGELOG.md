@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/zailky/onz-auth-js/compare/v1.0.3...v1.0.4) (2021-11-05)
+
+
+### Bug Fixes
+
+* **build:** no more save dev ([0a752ac](https://github.com/zailky/onz-auth-js/commit/0a752ac4d099e3612b0da030255f7fa34c53ea53))
+
 ## [1.0.3](https://github.com/zailky/onz-auth-js/compare/v1.0.2...v1.0.3) (2021-11-05)
 
 

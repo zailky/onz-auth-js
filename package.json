@@ -1,6 +1,6 @@
 {
   "name": "onz-auth",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Onz Auth Javascript SDK",
   "main": "dist/onz-auth-js-sdk.min.js",
   "scripts": {
@@ -40,6 +40,9 @@
   "readmeFilename": "README.md",
   "homepage": "https://github.com/zailky/onz-auth-js#readme",
   "dependencies": {
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/exec": "^6.0.2",
+    "@semantic-release/git": "^10.0.1",
     "axios": "^0.24.0",
     "zoid": "^9.0.82"
   },
