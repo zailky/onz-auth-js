@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/zailky/onz-auth-js/compare/v1.0.5...v1.0.6) (2021-11-06)
+
+
+### Bug Fixes
+
+* **build:** remove files in package json ([d33b32c](https://github.com/zailky/onz-auth-js/commit/d33b32ca482221d76ee9e2ee215848a8c49a25be))
+
 ## [1.0.5](https://github.com/zailky/onz-auth-js/compare/v1.0.4...v1.0.5) (2021-11-06)
 
 
