@@ -1,6 +1,6 @@
 {
   "name": "onz-auth",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Onz Auth Javascript SDK",
   "main": "dist/onz-auth-js-sdk.min.js",
   "scripts": {
