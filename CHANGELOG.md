@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/zailky/onz-auth-js/compare/v1.0.6...v1.0.7) (2021-11-06)
+
+
+### Bug Fixes
+
+* **build:** removed sourcemap ([226b9c5](https://github.com/zailky/onz-auth-js/commit/226b9c5ae3b403b98349ab10cd7e52b19aadcdaf))
+
 ## [1.0.6](https://github.com/zailky/onz-auth-js/compare/v1.0.5...v1.0.6) (2021-11-06)
 
 
