@@ -10,7 +10,7 @@ plugins:
     - prepareCmd: "npm run build"
   - - "@semantic-release/git"
     - "assets": 
-      - "dist/**/*.{js,css}"
+      - "dist/**/*.*"
       - package.json
       - package-lock.json
       - "CHANGELOG.md"
