@@ -10,7 +10,7 @@ export const OnzLoginComponent = zoid.create({
     url: ({ props }) => {
         //return new URL('dummy.htm', window.location.href).href;
         //return "https://idp-develop.zailky.com/signin"
-        return new URL('signin', props.apiURL).href;
+        return new URL('signin', props.idpURL).href;
     },
 
     // The size of the component on their page. Only px and % strings are supported
@@ -21,7 +21,7 @@ export const OnzLoginComponent = zoid.create({
     // The properties they can (or must) pass down to my component. This is optional.
 
     props: {
-        apiURL: {
+        idpURL: {
             type: 'string',
             required: true
         },

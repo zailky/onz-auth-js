@@ -41,7 +41,7 @@ export class Auth extends EventEmitter {
     _initialiseComponent() {
         this.component = OnzLoginComponent({
             clientID: this.clientID,
-            apiURL: this.urls.IdpUrl,
+            idpURL: this.urls.IdpURL,
             onLogin: function (authResult) {
                 console.log(OnzEvents.OnAuthenticated, authResult);
                 this.emit(OnzEvents.OnAuthenticated, authResult);
