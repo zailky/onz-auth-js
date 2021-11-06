@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/zailky/onz-auth-js/compare/v1.0.4...v1.0.5) (2021-11-06)
+
+
+### Bug Fixes
+
+* **build:** added babel to build ([49ae9d5](https://github.com/zailky/onz-auth-js/commit/49ae9d54e4862df0a0b44b32a219652cbad40f47))
+
 ## [1.0.4](https://github.com/zailky/onz-auth-js/compare/v1.0.3...v1.0.4) (2021-11-05)
 
 
