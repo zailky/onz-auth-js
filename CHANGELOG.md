@@ -1,3 +1,11 @@
+## [1.0.12](https://github.com/zailky/onz-auth-js/compare/v1.0.11...v1.0.12) (2021-11-06)
+
+
+### Bug Fixes
+
+* **build:** remove build step again ([c4c3a15](https://github.com/zailky/onz-auth-js/commit/c4c3a154655f4fd2cab43d7bc13e1d6b4bcb7368))
+* **build:** upload artifact ([58d26a0](https://github.com/zailky/onz-auth-js/commit/58d26a0a9c0bfd76c7e538282145b503fbfc1e1a))
+
 ## [1.0.11](https://github.com/zailky/onz-auth-js/compare/v1.0.10...v1.0.11) (2021-11-06)
 
 
