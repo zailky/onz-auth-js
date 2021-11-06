@@ -13,5 +13,5 @@ npm install onz-auth --save
 or
 
 ```html
-<script src="https://unpkg.com/onz-auth@1.0.2/dist/onz-auth-js-sdk.min.js"></script>
+<script src="https://unpkg.com/onz-auth@1.0.14/dist/onz-auth-js-sdk.min.js"></script>
 ```
