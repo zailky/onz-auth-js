@@ -1,3 +1,11 @@
+## [1.0.8](https://github.com/zailky/onz-auth-js/compare/v1.0.7...v1.0.8) (2021-11-06)
+
+
+### Bug Fixes
+
+* **build:** multi steps build ([911dd47](https://github.com/zailky/onz-auth-js/commit/911dd474677653f7cc446e1dbd168641046ab80c))
+* **build:** remove clean folder changed to use webpack clean plugin ([70f05d1](https://github.com/zailky/onz-auth-js/commit/70f05d1609aba1826eaad3b8162cb4bc7f31e3df))
+
 ## [1.0.7](https://github.com/zailky/onz-auth-js/compare/v1.0.6...v1.0.7) (2021-11-06)
 
 
