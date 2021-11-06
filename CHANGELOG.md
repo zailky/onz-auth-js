@@ -1,3 +1,11 @@
+## [1.0.11](https://github.com/zailky/onz-auth-js/compare/v1.0.10...v1.0.11) (2021-11-06)
+
+
+### Bug Fixes
+
+* **build:** remove manual clean ([ebdc498](https://github.com/zailky/onz-auth-js/commit/ebdc4981a16b35c7b8588d9461544aee661d5d01))
+* **build:** removed shared package build ([aecff40](https://github.com/zailky/onz-auth-js/commit/aecff403df8fec5eff5579c84f6771395aad475f))
+
 ## [1.0.10](https://github.com/zailky/onz-auth-js/compare/v1.0.9...v1.0.10) (2021-11-06)
 
 
