@@ -6,13 +6,13 @@ module.exports = {
     entry: {
         "onz-auth-js-sdk": {
             import: './src/index.js',
-            //dependOn: 'shared',
+            dependOn: 'shared',
         },
         "onz-auth-js-sdk.min": {
             import: './src/index.js',
-            //dependOn: 'shared',
+            dependOn: 'shared',
         },
-        //shared: ['zoid', 'axios'],
+        shared: ['zoid', 'axios'],
     },
     output: {
         path: `${__dirname}/dist`,

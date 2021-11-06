@@ -4,20 +4,20 @@ on:
     branches:
       - main
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: npm install and build webpack
-        run: |
-          npm install
-          npm run build
-      - uses: actions/upload-artifact@main
-        with:
-          name: webpack artifacts
-          path: dist/
+  # build:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - name: npm install and build webpack
+  #       run: |
+  #         npm install
+  #         npm run build
+  #     - uses: actions/upload-artifact@main
+  #       with:
+  #         name: webpack artifacts
+  #         path: dist/
   release:
-    needs: build
+    # needs: build
     name: Release
     runs-on: ubuntu-latest
     steps:
@@ -27,14 +27,16 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: npm install and build webpack
-        run: npm install          
+        run: | 
+          npm install          
+          npm run build
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
           node-version: 'lts/*'
       - uses: actions/download-artifact@main
         with:
-          name: webpack artifacts
+          name: upload webpack artifacts
           path: dist/          
       - name: Release
         env:
