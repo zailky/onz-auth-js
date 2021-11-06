@@ -34,7 +34,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 'lts/*'
-      - uses: actions/download-artifact@main
+      - uses: actions/upload-artifact@main
         with:
           name: upload webpack artifacts
           path: dist/          
