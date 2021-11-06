@@ -27,9 +27,6 @@
   "bugs": {
     "url": "https://github.com/zailky/onz-auth-js/issues"
   },
-  "files": [
-    "dist"
-  ],
   "browserslist": [
     "IE >= 9",
     "chrome >= 27",
