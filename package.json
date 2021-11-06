@@ -1,6 +1,6 @@
 {
   "name": "onz-auth",
-  "version": "1.0.6",
+  "version": "1.0.5",
   "description": "Onz Auth Javascript SDK",
   "main": "dist/onz-auth-js-sdk.min.js",
   "scripts": {
@@ -27,6 +27,9 @@
   "bugs": {
     "url": "https://github.com/zailky/onz-auth-js/issues"
   },
+  "files": [
+    "dist"
+  ],
   "browserslist": [
     "IE >= 9",
     "chrome >= 27",
