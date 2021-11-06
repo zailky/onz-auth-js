@@ -1,3 +1,10 @@
+## [1.0.14](https://github.com/zailky/onz-auth-js/compare/v1.0.13...v1.0.14) (2021-11-06)
+
+
+### Bug Fixes
+
+* **build:** removed shared module ([bb14aca](https://github.com/zailky/onz-auth-js/commit/bb14aca375e19824bbb9aaef29a6e99b6239f1cc))
+
 ## [1.0.13](https://github.com/zailky/onz-auth-js/compare/v1.0.12...v1.0.13) (2021-11-06)
 
 
