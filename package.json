@@ -5,8 +5,7 @@
   "main": "dist/onz-auth-js-sdk.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run clean && webpack --mode=development",
-    "clean": "rimraf dist",
+    "start": "webpack --mode=development",
     "build": "webpack"
   },
   "repository": {
