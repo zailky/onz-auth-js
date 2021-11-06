@@ -7,7 +7,7 @@ Onz Auth JavaScript SDK
 # Install
 
 ```shell
-yarn add onz-auth or npm install onz-auth --save
+npm install onz-auth --save
 ```
 
 or
