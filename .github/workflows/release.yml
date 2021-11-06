@@ -35,11 +35,9 @@ jobs:
       - uses: actions/download-artifact@main
         with:
           name: webpack artifacts
-          path: public          
+          path: dist/          
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          npm install @semantic-release/github @semantic-release/changelog @semantic-release/git @semantic-release/exec --save-dev
-          npx semantic-release          
+        run: npx semantic-release          
