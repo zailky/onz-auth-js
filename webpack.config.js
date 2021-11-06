@@ -11,7 +11,7 @@ module.exports = {
             import: './src/index.js',
             dependOn: 'shared',
         },
-        shared: 'zoid',
+        shared: ['zoid', 'axios'],
     },
     output: {
         path: `${__dirname}/dist`,
@@ -31,10 +31,7 @@ module.exports = {
         minimize: true,
         minimizer: [new TerserPlugin({
             include: /\.min\.js$/,
-        })],
-        splitChunks: {
-            chunks: 'all'
-        }
+        })]
     },
     plugins: [
         // fix "process is not defined" error:
@@ -42,5 +39,19 @@ module.exports = {
         new webpack.ProvidePlugin({
             process: 'process/browser'
         })
-    ]
+    ],
+    module: {
+        rules: [
+            {
+                test: /\.m?js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env']
+                    }
+                }
+            }
+        ]
+    }
 };

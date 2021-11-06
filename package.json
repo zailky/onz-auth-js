@@ -40,9 +40,6 @@
   "readmeFilename": "README.md",
   "homepage": "https://github.com/zailky/onz-auth-js#readme",
   "dependencies": {
-    "@semantic-release/changelog": "^6.0.1",
-    "@semantic-release/exec": "^6.0.2",
-    "@semantic-release/git": "^10.0.1",
     "axios": "^0.24.0",
     "zoid": "^9.0.82"
   },
