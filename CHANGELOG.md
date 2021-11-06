@@ -1,3 +1,10 @@
+## [1.0.15](https://github.com/zailky/onz-auth-js/compare/v1.0.14...v1.0.15) (2021-11-06)
+
+
+### Bug Fixes
+
+* **build:** added repo restrictions ([ed409b7](https://github.com/zailky/onz-auth-js/commit/ed409b74b3923cb466085a98e2e4e3bdba42dfb6))
+
 ## [1.0.14](https://github.com/zailky/onz-auth-js/compare/v1.0.13...v1.0.14) (2021-11-06)
 
 
