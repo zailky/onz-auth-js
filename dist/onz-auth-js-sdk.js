@@ -12447,7 +12447,7 @@ var OnzLoginComponent = zoid_default().create({
     clientID: {
       type: 'string',
       required: false,
-      queryParam: 'client_id'
+      queryParam: 'clientId'
     },
     onLogin: {
       type: 'function',

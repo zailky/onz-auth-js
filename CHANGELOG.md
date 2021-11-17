@@ -1,3 +1,10 @@
+## [1.0.16](https://github.com/zailky/onz-auth-js/compare/v1.0.15...v1.0.16) (2021-11-06)
+
+
+### Bug Fixes
+
+* **component:** clientId syntax casing fix ([ff592c8](https://github.com/zailky/onz-auth-js/commit/ff592c80183aff2971c2a75daf6372ab36a41c24))
+
 ## [1.0.15](https://github.com/zailky/onz-auth-js/compare/v1.0.14...v1.0.15) (2021-11-06)
 
 
