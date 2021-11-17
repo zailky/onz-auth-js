@@ -1,13 +1,13 @@
 export const OnzAuthEnum = Object.freeze({ 
     Production: {
-        AuthURL: 'https://auth.zailky.com',
-        IdpURL: 'https://idp.zailky.com',
-        IdpApiURL: 'https://idp-api.zailky.com'
+        AuthURL: 'https://auth.onzauth.com',
+        IdpURL: 'https://idp.onzauth.com',
+        IdpApiURL: 'https://idp-api.onzauth.com'
     },
     Development: {
-        AuthURL: 'https://auth-develop.zailky.com',
-        IdpURL: 'https://idp-develop.zailky.com',
-        IdpApiURL: 'https://idp-api-develop.zailky.com'
+        AuthURL: 'https://auth-develop.onzauth.com',
+        IdpURL: 'https://idp-develop.onzauth.com',
+        IdpApiURL: 'https://idp-api-develop.onzauth.com'
     }
 });
 
