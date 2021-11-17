@@ -1,3 +1,10 @@
+## [1.0.17](https://github.com/zailky/onz-auth-js/compare/v1.0.16...v1.0.17) (2021-11-17)
+
+
+### Bug Fixes
+
+* **auth:** domain changes ([6781277](https://github.com/zailky/onz-auth-js/commit/67812777abdb21ba1b2f7dda17c44b2428a7e688))
+
 ## [1.0.16](https://github.com/zailky/onz-auth-js/compare/v1.0.15...v1.0.16) (2021-11-06)
 
 
