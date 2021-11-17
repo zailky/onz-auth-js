@@ -15,8 +15,8 @@ export const OnzLoginComponent = zoid.create({
 
     // The size of the component on their page. Only px and % strings are supported
     dimensions: {
-        width: '400px',
-        height: '600px'
+        width: '350px',
+        height: '500px'
     },
     // The properties they can (or must) pass down to my component. This is optional.
 
