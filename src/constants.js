@@ -17,5 +17,6 @@ export const OnzEvents = Object.freeze({
     OnClosed: 'closed',
     OnError: 'error',
     OnRefreshed: 'refreshed',
-    OnRefreshFailure: 'refresh-failure'
+    OnRefreshFailure: 'refresh-failure',
+    ClientIdFailure: 'client-id-failure'
 });
