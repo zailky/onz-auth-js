@@ -1,3 +1,10 @@
+## [1.0.18](https://github.com/zailky/onz-auth-js/compare/v1.0.17...v1.0.18) (2021-11-17)
+
+
+### Bug Fixes
+
+* **auth:** changed dimension ([e873438](https://github.com/zailky/onz-auth-js/commit/e87343847e20afb7597b0d913e466b489ed7de12))
+
 ## [1.0.17](https://github.com/zailky/onz-auth-js/compare/v1.0.16...v1.0.17) (2021-11-17)
 
 
