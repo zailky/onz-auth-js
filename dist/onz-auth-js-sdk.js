@@ -14,7 +14,7 @@ return /******/ (function() { // webpackBootstrap
 /***/ 669:
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
-/* unused reexport */ __webpack_require__(609);
+module.exports = __webpack_require__(609);
 
 /***/ }),
 
@@ -12408,16 +12408,19 @@ var OnzAuthEnum = Object.freeze({
     AuthURL: 'https://auth-develop.onzauth.com',
     IdpURL: 'https://idp-develop.onzauth.com',
     IdpApiURL: 'https://idp-api-develop.onzauth.com'
+  },
+  Debug: {
+    AuthURL: 'https://auth-develop.onzauth.com',
+    IdpURL: 'http://localhost:3000',
+    IdpApiURL: 'https://idp-api-develop.onzauth.com'
   }
 });
 var OnzEvents = Object.freeze({
-  OnAuthenticationFailure: 'authentication-failure',
   OnAuthenticated: 'authenticated',
   OnClosed: 'closed',
   OnError: 'error',
   OnRefreshed: 'refreshed',
-  OnRefreshFailure: 'refresh-failure',
-  ClientIdFailure: 'client-id-failure'
+  OnLoggedOut: 'logged_out'
 });
 // EXTERNAL MODULE: ./node_modules/zoid/index.js
 var zoid = __webpack_require__(175);
@@ -12447,8 +12450,8 @@ var OnzLoginComponent = zoid_default().create({
     },
     clientID: {
       type: 'string',
-      required: false,
-      queryParam: 'clientId'
+      required: true,
+      queryParam: 'client_id'
     },
     onLogin: {
       type: 'function',
@@ -12462,8 +12465,56 @@ var OnzLoginComponent = zoid_default().create({
 });
 ;// CONCATENATED MODULE: ./src/login/index.js
 
+;// CONCATENATED MODULE: ./src/logout/logout.js
+
+var OnzLogoutComponent = zoid_default().create({
+  // The html tag used to render my component
+  tag: 'onz-logout-component',
+  // The url that will be loaded in the iframe or popup, when someone includes my component on their page
+  url: function url(_ref) {
+    var props = _ref.props;
+    return new URL('logout', props.idpURL).href;
+  },
+  // The size of the component on their page. Only px and % strings are supported
+  dimensions: {
+    width: '100px',
+    height: '100px'
+  },
+  // The properties they can (or must) pass down to my component. This is optional.
+  props: {
+    idpURL: {
+      type: 'string',
+      required: true
+    },
+    idToken: {
+      type: 'string',
+      required: true,
+      queryParam: 'id_token'
+    },
+    clientID: {
+      type: 'string',
+      required: true,
+      queryParam: 'client_id'
+    },
+    onLogout: {
+      type: 'function',
+      required: true
+    },
+    onLogoutError: {
+      type: 'function',
+      required: true
+    }
+  }
+});
+;// CONCATENATED MODULE: ./src/logout/index.js
+
 // EXTERNAL MODULE: ./node_modules/axios/index.js
 var axios = __webpack_require__(669);
+var axios_default = /*#__PURE__*/__webpack_require__.n(axios);
+;// CONCATENATED MODULE: ./node_modules/jwt-decode/build/jwt-decode.esm.js
+function e(e){this.message=e}e.prototype=new Error,e.prototype.name="InvalidCharacterError";var r="undefined"!=typeof window&&window.atob&&window.atob.bind(window)||function(r){var t=String(r).replace(/=+$/,"");if(t.length%4==1)throw new e("'atob' failed: The string to be decoded is not correctly encoded.");for(var n,o,a=0,i=0,c="";o=t.charAt(i++);~o&&(n=a%4?64*n+o:o,a++%4)?c+=String.fromCharCode(255&n>>(-2*a&6)):0)o="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=".indexOf(o);return c};function t(e){var t=e.replace(/-/g,"+").replace(/_/g,"/");switch(t.length%4){case 0:break;case 2:t+="==";break;case 3:t+="=";break;default:throw"Illegal base64url string!"}try{return function(e){return decodeURIComponent(r(e).replace(/(.)/g,(function(e,r){var t=r.charCodeAt(0).toString(16).toUpperCase();return t.length<2&&(t="0"+t),"%"+t})))}(t)}catch(e){return r(t)}}function n(e){this.message=e}function o(e,r){if("string"!=typeof e)throw new n("Invalid token specified");var o=!0===(r=r||{}).header?0:1;try{return JSON.parse(t(e.split(".")[o]))}catch(e){throw new n("Invalid token specified: "+e.message)}}n.prototype=new Error,n.prototype.name="InvalidTokenError";/* harmony default export */ var jwt_decode_esm = (o);
+//# sourceMappingURL=jwt-decode.esm.js.map
+
 ;// CONCATENATED MODULE: ./src/onz-auth.js
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -12491,14 +12542,15 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
+
 /**
  * Handles all the browser's authentication flows
  * @constructor
  * @param {Object} options
  * @param {String} options.clientID the Client ID found on your project overview page
  * @param {String} [options.containerID] the element container id, will default to 'container'
- * @param {String} [options.isIframe] boolean value indicating whether it is a popup or iframe
- * @param {String} [options.mode] 'production' or 'development', defaults to 'production'
+ * @param {String} [options.isIframe] boolean value indicating whether it is a popup or iframe 
  */
 
 var Auth = /*#__PURE__*/function (_EventEmitter) {
@@ -12530,8 +12582,6 @@ var Auth = /*#__PURE__*/function (_EventEmitter) {
 
     _this._initialiseURL();
 
-    _this._initialiseComponent();
-
     return _this;
   }
 
@@ -12540,71 +12590,203 @@ var Auth = /*#__PURE__*/function (_EventEmitter) {
     value: function _initialiseURL() {
       if (this.mode === 'development') {
         this.urls = OnzAuthEnum.Development;
+      } else if (this.mode === 'debug') {
+        this.urls = OnzAuthEnum.Debug;
       } else {
         this.urls = OnzAuthEnum.Production;
       }
     }
   }, {
-    key: "_initialiseComponent",
-    value: function _initialiseComponent() {
+    key: "_newLoginComponent",
+    value: function _newLoginComponent() {
       var _this2 = this;
 
-      this.component = OnzLoginComponent({
+      return OnzLoginComponent({
         clientID: this.clientID,
         idpURL: this.urls.IdpURL,
         onLogin: function onLogin(authResult) {
-          console.log(OnzEvents.OnAuthenticated, authResult);
-          this.emit(OnzEvents.OnAuthenticated, authResult);
+          _this2._setSession(authResult);
+
+          _this2.emit(OnzEvents.OnAuthenticated, authResult);
         },
         onLoginError: function onLoginError(errorMessage) {
-          console.log(OnzEvents.OnError, errorMessage);
-          this.emit(OnzEvents.OnError, errorMessage);
+          _this2.emit(OnzEvents.OnError, errorMessage);
         },
         onClose: function onClose() {
-          console.log(OnzEvents.OnClosed);
-
           _this2.emit(OnzEvents.OnClosed);
         },
         onError: function onError(err) {
-          var message = err.message ? err.message.toString() : '';
-          console.log(message);
+          var message = err && err.message ? err.message.toString() : err;
 
-          _this2.emit(OnzEvents.OnError, err);
+          _this2.emit(OnzEvents.OnError, message);
         }
       });
     }
   }, {
+    key: "_newLogoutComponent",
+    value: function _newLogoutComponent(idToken) {
+      var _this3 = this;
+
+      return OnzLogoutComponent({
+        idToken: idToken,
+        clientID: this.clientID,
+        idpURL: this.urls.IdpURL,
+        onLogout: function onLogout() {
+          _this3._setSession(null);
+
+          _this3.emit(OnzEvents.OnLoggedOut, authResult);
+        },
+        onLogoutError: function onLogoutError(errorMessage) {
+          _this3.emit(OnzEvents.OnError, errorMessage);
+        },
+        onClose: function onClose() {
+          _this3.emit(OnzEvents.OnClosed);
+        },
+        onError: function onError(err) {
+          var message = err && err.message ? err.message.toString() : err;
+
+          _this3.emit(OnzEvents.OnError, message);
+        }
+      });
+    }
+  }, {
+    key: "_setSession",
+    value: function _setSession(authResult) {
+      if (authResult) {
+        if (authResult.accessToken) {
+          localStorage.setItem('access_token', authResult.accessToken);
+        }
+
+        if (authResult.idToken) {
+          localStorage.setItem('id_token', authResult.idToken);
+        }
+
+        if (authResult.refreshToken) {
+          localStorage.setItem('refresh_token', authResult.refreshToken);
+        }
+
+        if (authResult.expiry) {
+          localStorage.setItem('expiry', authResult.expiry);
+        }
+      } else {
+        localStorage.removeItem('access_token');
+        localStorage.removeItem('id_token');
+        localStorage.removeItem('refresh_token');
+        localStorage.removeItem('expiry');
+      }
+    }
+  }, {
     key: "showLogin",
     value: function showLogin() {
-      this.component.render("#".concat(this.containerID), this.isIframe);
+      this._newLoginComponent().render("#".concat(this.containerID), this.isIframe);
     }
   }, {
     key: "refreshAccessToken",
-    value: function refreshAccessToken() {}
+    value: function refreshAccessToken() {
+      var _this4 = this;
+
+      var refreshToken = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.getRefreshToken();
+      var path = new URL('public/refresh', this.urls.IdpApiURL).href;
+      axios_default().post(path, {
+        clientId: this.clientID,
+        refreshToken: refreshToken
+      }).then(function (response) {
+        if (response.data) {
+          _this4._setSession(response.data);
+
+          _this4.emit(OnzEvents.OnRefreshed, response.data);
+        }
+      })["catch"](function (error) {
+        if (error.response && error.response.data && error.response.data.message) {
+          _this4.emit(OnzEvents.OnError, error.response.data.message);
+        } else {
+          _this4.emit(OnzEvents.OnError, 'unknown-error');
+        }
+      });
+    }
   }, {
-    key: "signOut",
-    value: function signOut() {}
+    key: "logout",
+    value: function logout() {
+      var idToken = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.getIDToken();
+
+      // const existing = document.getElementById('onzHiddenFrame');
+      // if (existing === null) {
+      //     const hiddenDiv = document.createElement('div');
+      //     hiddenDiv.style.display = 'none';
+      // }
+      this._newLogoutComponent(idToken).render("#".concat(this.containerID), this.isIframe);
+    }
   }, {
     key: "isAuthenticated",
-    value: function isAuthenticated() {}
+    value: function isAuthenticated() {
+      var accessToken = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.getAccessToken();
+
+      if (!accessToken) {
+        return false;
+      }
+
+      var decoded = jwt_decode_esm(accessToken);
+      var currentTime = Date.now() / 1000;
+
+      if (decoded.exp < currentTime) {
+        return false;
+      }
+
+      return true;
+    }
   }, {
     key: "getOAuthTokens",
-    value: function getOAuthTokens() {}
+    value: function getOAuthTokens() {
+      if (localStorage.getItem('access_token')) {
+        return {
+          accessToken: localStorage.getItem('access_token'),
+          idToken: localStorage.getItem('id_token'),
+          refreshToken: localStorage.getItem('refresh_token'),
+          expiry: localStorage.getItem('expiry')
+        };
+      }
+
+      return null;
+    }
   }, {
     key: "getAccessToken",
-    value: function getAccessToken() {}
+    value: function getAccessToken() {
+      return window.localStorage.getItem('access_token');
+    }
   }, {
     key: "getDecodedAccessToken",
-    value: function getDecodedAccessToken() {}
+    value: function getDecodedAccessToken() {
+      var token = this.getAccessToken();
+      var decoded = jwt_decode_esm(token);
+
+      if (!decoded) {
+        return null;
+      }
+
+      return decoded;
+    }
   }, {
     key: "getIDToken",
-    value: function getIDToken() {}
+    value: function getIDToken() {
+      return window.localStorage.getItem('id_token');
+    }
   }, {
-    key: "getDecodedIdToken",
-    value: function getDecodedIdToken() {}
+    key: "getDecodedIDToken",
+    value: function getDecodedIDToken() {
+      var token = this.getIDToken();
+      var decoded = jwt_decode_esm(token);
+
+      if (!decoded) {
+        return null;
+      }
+
+      return decoded;
+    }
   }, {
     key: "getRefreshToken",
-    value: function getRefreshToken() {}
+    value: function getRefreshToken() {
+      return window.localStorage.getItem('refresh_token');
+    }
   }]);
 
   return Auth;

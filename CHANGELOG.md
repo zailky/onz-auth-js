@@ -1,3 +1,10 @@
+## [1.0.19](https://github.com/zailky/onz-auth-js/compare/v1.0.18...v1.0.19) (2021-11-20)
+
+
+### Bug Fixes
+
+* **auth:** added logout component ([5c36b59](https://github.com/zailky/onz-auth-js/commit/5c36b5964b910580efbd6c7ae12b1a441722d531))
+
 ## [1.0.18](https://github.com/zailky/onz-auth-js/compare/v1.0.17...v1.0.18) (2021-11-17)
 
 
