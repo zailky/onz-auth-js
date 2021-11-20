@@ -8,15 +8,18 @@ export const OnzAuthEnum = Object.freeze({
         AuthURL: 'https://auth-develop.onzauth.com',
         IdpURL: 'https://idp-develop.onzauth.com',
         IdpApiURL: 'https://idp-api-develop.onzauth.com'
+    },
+    Debug: {
+        AuthURL: 'https://auth-develop.onzauth.com',
+        IdpURL: 'http://localhost:3000',
+        IdpApiURL: 'https://idp-api-develop.onzauth.com'
     }
 });
 
-export const OnzEvents = Object.freeze({    
-    OnAuthenticationFailure: 'authentication-failure',    
+export const OnzEvents = Object.freeze({        
     OnAuthenticated: 'authenticated',
     OnClosed: 'closed',
     OnError: 'error',
     OnRefreshed: 'refreshed',
-    OnRefreshFailure: 'refresh-failure',
-    ClientIdFailure: 'client-id-failure'
+    OnLoggedOut: 'logged_out' 
 });
