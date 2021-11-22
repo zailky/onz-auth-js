@@ -1,3 +1,10 @@
+## [1.0.20](https://github.com/zailky/onz-auth-js/compare/v1.0.19...v1.0.20) (2021-11-22)
+
+
+### Bug Fixes
+
+* **auth:** initial version alpha with demo ([73fa291](https://github.com/zailky/onz-auth-js/commit/73fa2919e90dd670c93e833d0d3a97d7bf2ace47))
+
 ## [1.0.19](https://github.com/zailky/onz-auth-js/compare/v1.0.18...v1.0.19) (2021-11-20)
 
 
