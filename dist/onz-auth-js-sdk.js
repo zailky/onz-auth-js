@@ -12403,16 +12403,6 @@ var OnzAuthEnum = Object.freeze({
     AuthURL: 'https://auth.onzauth.com',
     IdpURL: 'https://idp.onzauth.com',
     IdpApiURL: 'https://idp-api.onzauth.com'
-  },
-  Development: {
-    AuthURL: 'https://auth-develop.onzauth.com',
-    IdpURL: 'https://idp-develop.onzauth.com',
-    IdpApiURL: 'https://idp-api-develop.onzauth.com'
-  },
-  Debug: {
-    AuthURL: 'https://auth-develop.onzauth.com',
-    IdpURL: 'http://localhost:3000',
-    IdpApiURL: 'https://idp-api-develop.onzauth.com'
   }
 });
 var OnzEvents = Object.freeze({
@@ -12433,14 +12423,16 @@ var OnzLoginComponent = zoid_default().create({
   // The url that will be loaded in the iframe or popup, when someone includes my component on their page
   url: function url(_ref) {
     var props = _ref.props;
-    //return new URL('dummy.htm', window.location.href).href;
-    //return "https://idp-develop.zailky.com/signin"
     return new URL('signin', props.idpURL).href;
   },
   // The size of the component on their page. Only px and % strings are supported
   dimensions: {
     width: '350px',
-    height: '500px'
+    height: '520px'
+  },
+  autoResize: {
+    width: false,
+    height: true
   },
   // The properties they can (or must) pass down to my component. This is optional.
   props: {
@@ -12477,8 +12469,8 @@ var OnzLogoutComponent = zoid_default().create({
   },
   // The size of the component on their page. Only px and % strings are supported
   dimensions: {
-    width: '100px',
-    height: '100px'
+    width: '0px',
+    height: '0px'
   },
   // The properties they can (or must) pass down to my component. This is optional.
   props: {
@@ -12559,7 +12551,7 @@ var Auth = /*#__PURE__*/function (_EventEmitter) {
   var _super = _createSuper(Auth);
 
   function Auth(options) {
-    var _options$containerID, _options$mode;
+    var _options$containerID;
 
     var _this;
 
@@ -12578,7 +12570,6 @@ var Auth = /*#__PURE__*/function (_EventEmitter) {
     _this.clientID = options.clientID;
     _this.containerID = (_options$containerID = options.containerID) !== null && _options$containerID !== void 0 ? _options$containerID : 'container';
     _this.isIframe = !!options.isIframe ? 'iframe' : 'popup';
-    _this.mode = (_options$mode = options.mode) !== null && _options$mode !== void 0 ? _options$mode : 'production';
 
     _this._initialiseURL();
 
@@ -12588,13 +12579,7 @@ var Auth = /*#__PURE__*/function (_EventEmitter) {
   onz_auth_createClass(Auth, [{
     key: "_initialiseURL",
     value: function _initialiseURL() {
-      if (this.mode === 'development') {
-        this.urls = OnzAuthEnum.Development;
-      } else if (this.mode === 'debug') {
-        this.urls = OnzAuthEnum.Debug;
-      } else {
-        this.urls = OnzAuthEnum.Production;
-      }
+      this.urls = OnzAuthEnum.Production;
     }
   }, {
     key: "_newLoginComponent",
@@ -12634,7 +12619,7 @@ var Auth = /*#__PURE__*/function (_EventEmitter) {
         onLogout: function onLogout() {
           _this3._setSession(null);
 
-          _this3.emit(OnzEvents.OnLoggedOut, authResult);
+          _this3.emit(OnzEvents.OnLoggedOut);
         },
         onLogoutError: function onLogoutError(errorMessage) {
           _this3.emit(OnzEvents.OnError, errorMessage);
@@ -12709,12 +12694,21 @@ var Auth = /*#__PURE__*/function (_EventEmitter) {
     value: function logout() {
       var idToken = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.getIDToken();
 
-      // const existing = document.getElementById('onzHiddenFrame');
-      // if (existing === null) {
-      //     const hiddenDiv = document.createElement('div');
-      //     hiddenDiv.style.display = 'none';
-      // }
-      this._newLogoutComponent(idToken).render("#".concat(this.containerID), this.isIframe);
+      if (!idToken) {
+        this.emit(OnzEvents.OnError, 'no id token provided');
+        return;
+      }
+
+      var existing = document.getElementById('onzHiddenFrame');
+
+      if (existing === null) {
+        var hiddenDiv = document.createElement('div');
+        hiddenDiv.id = 'onzHiddenFrame';
+        hiddenDiv.style.display = 'none';
+        document.body.appendChild(hiddenDiv);
+      }
+
+      this._newLogoutComponent(idToken).render('#onzHiddenFrame');
     }
   }, {
     key: "isAuthenticated",
