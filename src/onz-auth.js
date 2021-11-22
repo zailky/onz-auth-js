@@ -25,19 +25,12 @@ export class Auth extends EventEmitter {
         this.clientID = options.clientID;
         this.containerID = options.containerID ?? 'container';
         this.isIframe = !!options.isIframe ? 'iframe' : 'popup';
-        this.mode = options.mode ?? 'production';
         
         this._initialiseURL();        
     }
 
     _initialiseURL() {
-        if (this.mode === 'development') {
-            this.urls = OnzAuthEnum.Development;
-        } else if (this.mode === 'debug') {
-            this.urls = OnzAuthEnum.Debug;
-        } else {
-            this.urls = OnzAuthEnum.Production;
-        }
+        this.urls = OnzAuthEnum.Production;
     }
 
     _newLoginComponent() {
@@ -68,7 +61,7 @@ export class Auth extends EventEmitter {
             idpURL: this.urls.IdpURL,
             onLogout: () => {
                 this._setSession(null);
-                this.emit(OnzEvents.OnLoggedOut, authResult);
+                this.emit(OnzEvents.OnLoggedOut);
             },
             onLogoutError: errorMessage => {
                 this.emit(OnzEvents.OnError, errorMessage);
@@ -135,12 +128,18 @@ export class Auth extends EventEmitter {
     }
 
     logout(idToken = this.getIDToken()) {
-        // const existing = document.getElementById('onzHiddenFrame');
-        // if (existing === null) {
-        //     const hiddenDiv = document.createElement('div');
-        //     hiddenDiv.style.display = 'none';
-        // }
-        this._newLogoutComponent(idToken).render(`#${this.containerID}`, this.isIframe);
+        if (!idToken) {
+            this.emit(OnzEvents.OnError, 'no id token provided');
+            return;
+        }
+        const existing = document.getElementById('onzHiddenFrame');
+        if (existing === null) {
+            const hiddenDiv = document.createElement('div');
+            hiddenDiv.id = 'onzHiddenFrame';
+            hiddenDiv.style.display = 'none';
+            document.body.appendChild(hiddenDiv);
+        }
+        this._newLogoutComponent(idToken).render('#onzHiddenFrame');
     }
 
     isAuthenticated(accessToken = this.getAccessToken()) {

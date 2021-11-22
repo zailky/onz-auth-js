@@ -3,16 +3,6 @@ export const OnzAuthEnum = Object.freeze({
         AuthURL: 'https://auth.onzauth.com',
         IdpURL: 'https://idp.onzauth.com',
         IdpApiURL: 'https://idp-api.onzauth.com'
-    },
-    Development: {
-        AuthURL: 'https://auth-develop.onzauth.com',
-        IdpURL: 'https://idp-develop.onzauth.com',
-        IdpApiURL: 'https://idp-api-develop.onzauth.com'
-    },
-    Debug: {
-        AuthURL: 'https://auth-develop.onzauth.com',
-        IdpURL: 'http://localhost:3000',
-        IdpApiURL: 'https://idp-api-develop.onzauth.com'
     }
 });
 

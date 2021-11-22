@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<head>    
+    <script src="https://unpkg.com/onz-auth@1.0.20/dist/onz-auth-js-sdk.min.js"></script>    
+</head>
+
+<body>
+
+    <h3>Log in to our sample domain</h3>
+    <div>
+        Please provide your email to test the magic link
+    </div>
+    <br/>
+    <button id="popupLogin" class="btn btn-primary">Log In</button>
+    <button id="popupLogout" class="btn btn-primary" style="display:none">Log Out</button>
+    <div id="container"></div>
+    <div>
+        <pre id="result"></pre>
+        <pre id="result2"></pre>
+    </div>
+    <script>
+        // Initialise the component
+        const auth = new onz.Auth({
+            clientID: 'public-demo-d481e3561d',
+            containerID: 'container',
+            isIframe: false
+        });
+
+        function refreshState() {
+            if (auth.isAuthenticated()) {
+                // Hide the button
+                document.querySelector('#popupLogin').style.display = 'none';
+                document.querySelector('#popupLogout').style.display = 'block';
+
+                const accessTokenJwt = auth.getDecodedAccessToken();
+                document.querySelector('#result').textContent = JSON.stringify(accessTokenJwt, undefined, 2);
+
+                const idTokenJwt = auth.getDecodedIDToken();
+                document.querySelector('#result2').textContent = JSON.stringify(idTokenJwt, undefined, 2);
+            } else {
+                // Hide the button
+                document.querySelector('#popupLogin').style.display = 'block';
+                document.querySelector('#popupLogout').style.display = 'none';
+                document.querySelector('#result').textContent = '';
+                document.querySelector('#result2').textContent = '';
+            }
+        }
+
+        refreshState();
+        
+        auth.on("closed", () => {
+            console.log('popup or iframe closed');
+        });
+
+        auth.on("authenticated", result => {
+            console.log('authenticated result', result);            
+            refreshState();
+        });
+        
+        auth.on("logged_out", () => {
+            refreshState();
+        });
+
+        auth.on("error", error => {
+            console.log('error', error);
+            refreshState();
+        });
+
+        document.querySelector('#popupLogin').addEventListener('click', function () {            
+            auth.showLogin();
+        });
+
+        document.querySelector('#popupLogout').addEventListener('click', function () {
+            auth.logout();
+        });
+
+    </script>
+
+</body>

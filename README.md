@@ -23,7 +23,7 @@ npm install onz-auth --save
 or
 
 ```html
-<script src="https://unpkg.com/onz-auth@1.0.19/dist/onz-auth-js-sdk.min.js"></script>
+<script src="https://unpkg.com/onz-auth@1.0.20/dist/onz-auth-js-sdk.min.js"></script>
 ```
 
 # Quickstart
@@ -135,7 +135,7 @@ auth.on("closed", () => {
         <tr>
             <td>logout(idToken: optional)</td>
             <td>nil</td>
-            <td>Signs out the user.  Parameter is optional, will default to localstorage token</td>
+            <td>Signs out the user, will be using a hidden iframe, so when it finishes, <u>close</u> event will be invoked together with <u>logged_out</u>.  Parameter is optional, will default to localstorage token</td>
         </tr>  
         <tr>
             <td>isAuthenticated(accessToken: optional)</td>
