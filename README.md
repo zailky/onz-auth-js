@@ -16,6 +16,7 @@ Join our [Slack Community](https://join.slack.com/t/slack-bxk5215/shared_invite/
 View the [Demo Application](https://zailky.github.io/onz-auth-js/demo/index.htm)
 
 <br />
+
 # Install
 
 ```shell
