@@ -1,7 +1,7 @@
 {
   "name": "onz-auth",
   "version": "1.0.20",
-  "description": "Onz Auth Javascript SDK",
+  "description": "Onz Auth Javascript SDK for Passwordless Authentication",
   "main": "dist/onz-auth-js-sdk.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,7 +19,12 @@
     "openid",
     "auth",
     "jwt",
-    "browser"
+    "browser",
+    "passwordless",
+    "magic",
+    "magiclink",
+    "saas",
+    "oauth"
   ],
   "author": "Zailky",
   "license": "MIT",
