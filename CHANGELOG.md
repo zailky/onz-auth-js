@@ -1,3 +1,10 @@
+## [1.0.21](https://github.com/zailky/onz-auth-js/compare/v1.0.20...v1.0.21) (2021-12-15)
+
+
+### Bug Fixes
+
+* **auth:** updated package.json for more SEO friendly results ([b7a2b2b](https://github.com/zailky/onz-auth-js/commit/b7a2b2be115e65fa5f46cfe974566ac33a4e281a))
+
 ## [1.0.20](https://github.com/zailky/onz-auth-js/compare/v1.0.19...v1.0.20) (2021-11-22)
 
 
