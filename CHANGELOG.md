@@ -1,3 +1,10 @@
+## [1.0.23](https://github.com/zailky/onz-auth-js/compare/v1.0.22...v1.0.23) (2022-05-18)
+
+
+### Bug Fixes
+
+* **webauthn:** More tweaks to window size ([6384ab3](https://github.com/zailky/onz-auth-js/commit/6384ab3802503196216804b4fad529508fa89901))
+
 ## [1.0.22](https://github.com/zailky/onz-auth-js/compare/v1.0.21...v1.0.22) (2022-05-18)
 
 
