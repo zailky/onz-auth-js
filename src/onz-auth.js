@@ -25,6 +25,7 @@ export class Auth extends EventEmitter {
         this.clientID = options.clientID;
         this.containerID = options.containerID ?? 'container';
         this.isIframe = !!options.isIframe ? 'iframe' : 'popup';
+        this._currentComponent = null;
         
         this._initialiseURL();        
     }
@@ -46,6 +47,7 @@ export class Auth extends EventEmitter {
             },
             onClose: () => {                
                 this.emit(OnzEvents.OnClosed);
+                this._currentComponent = null;
             },
             onError: (err) => {
                 const message = err && err.message ? err.message.toString() : err;
@@ -102,7 +104,34 @@ export class Auth extends EventEmitter {
     }
     
     showLogin() {
-        this._newLoginComponent().render(`#${this.containerID}`, this.isIframe);
+        this._currentComponent = this._newLoginComponent();
+        this._currentComponent.render(`#${this.containerID}`, this.isIframe);
+    }
+
+    isLoggingIn() {
+        return this._currentComponent;
+    }
+
+    updateOptions(options){
+        if (options.clientID && options.clientID !== this.clientID) {
+            this.clientID = options.clientID;
+        }
+
+        if (options.containerID && options.containerID !== this.containerID) {
+            this.containerID = options.containerID;
+        }
+
+        if (!!options.isIframe !== (this.isIframe === 'iframe')) {            
+            this.isIframe = !!options.isIframe ? 'iframe' : 'popup';
+        }        
+    }
+
+    close() {
+        if (this._currentComponent) {
+            this._currentComponent.close().then(() => {
+                this.emit(OnzEvents.OnClosed);
+            });
+        }
     }
 
     refreshAccessToken(refreshToken = this.getRefreshToken()) {

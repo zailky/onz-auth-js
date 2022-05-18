@@ -16,7 +16,7 @@ export const OnzLoginComponent = zoid.create({
     },    
     autoResize: {
         width: false,
-        height: true,
+        height: false,
     },
 
     // The properties they can (or must) pass down to my component. This is optional.

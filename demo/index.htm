@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://unpkg.com/onz-auth@1.0.23/dist/onz-auth-js-sdk.min.js"></script>    
+    <script src="https://unpkg.com/onz-auth@1.0.24/dist/onz-auth-js-sdk.min.js"></script> 
 </head>
 
 <body>
@@ -20,12 +20,21 @@
                 Please provide your email to test the magic link
             </div>
             <br />
-            <div class="row justify-content-center">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="iframeCheck">
+                <label class="form-check-label" for="iframeCheck">
+                    Iframe Login (Uncheck to show popup)
+                </label>
+            </div>
+            <br />
+            <div class="row justify-content-center">               
+                <button id="close" class="btn btn-lg btn-primary" display="none">Close</button>
                 <button id="popupLogin" class="btn btn-lg btn-primary">Log In</button>
                 <button id="popupLogout" class="btn btn-lg btn-primary" style="display:none">Log Out</button>
             </div>           
         </main>
         <br />
+        <div id="container"></div>
         <hr/>
         <footer class="mastfoot mt-auto">
             <div class="inner">
@@ -38,7 +47,7 @@
         </footer>
     </div>
     <br/>
-    <div id="container" class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column p-3 mb-2">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column p-3 mb-2">
         <div class="row justify-content-center">
             <pre id="result"></pre>
             <pre id="result2"></pre>
@@ -66,7 +75,8 @@
                 const idTokenJwt = auth.getDecodedIDToken();
                 document.querySelector('#result2').textContent = JSON.stringify(idTokenJwt, undefined, 2);
             } else {
-                // Hide the button
+                // Hide the button                
+                document.querySelector('#close').style.display = 'none';
                 document.querySelector('#popupLogin').style.display = 'block';
                 document.querySelector('#popupLogout').style.display = 'none';
                 document.querySelector('#result').textContent = '';
@@ -77,6 +87,7 @@
         refreshState();
         
         auth.on("closed", () => {
+            refreshState();
             console.log('popup or iframe closed');
         });
 
@@ -94,13 +105,28 @@
             refreshState();
         });
 
-        document.querySelector('#popupLogin').addEventListener('click', function () {            
+        document.querySelector('#popupLogin').addEventListener('click', function () {  
+            if (document.querySelector('#iframeCheck').checked) {
+                document.querySelector('#close').style.display = 'block'; 
+            }
+            document.querySelector('#popupLogin').style.display = 'none';
+            document.querySelector('#popupLogout').style.display = 'none';         
             auth.showLogin();
+        });
+
+        document.querySelector('#close').addEventListener('click', function () {
+            auth.close();
         });
 
         document.querySelector('#popupLogout').addEventListener('click', function () {
             auth.logout();
         });
+
+        document.querySelector('#iframeCheck').addEventListener('change', (event) => {            
+            auth.updateOptions({
+                isIframe: event.currentTarget.checked
+            });
+        })
 
     </script>
 

@@ -31,7 +31,7 @@ npm install onz-auth --save
 or
 
 ```html
-<script src="https://unpkg.com/onz-auth@1.0.23/dist/onz-auth-js-sdk.min.js"></script>
+<script src="https://unpkg.com/onz-auth@1.0.24/dist/onz-auth-js-sdk.min.js"></script>
 ```
 
 # Quickstart
@@ -137,6 +137,28 @@ auth.on("closed", () => {
             <td>nil</td>
             <td>Shows the login popup or iframe to initiate a new Log in flow</td>
         </tr>
+        <tr>
+            <td>updateOptions(options)</td>
+            <td>nil</td>
+            <td>Updates the existing options when initialised
+                <pre>Options Object
+{
+    clientID: 'Your Client ID', // Optional
+    containerID: 'myDiv', // Optional
+    isIframe: true, // Optional
+}</pre>
+            </td>
+        </tr>
+        <tr>
+            <td>isLoggingIn()</td>
+            <td>boolean</td>
+            <td>Returns whether a login flow is in progress</td>
+        </tr>
+        <tr>
+            <td>close()</td>
+            <td>nil</td>
+            <td>Closes the popup or iframe at any time, will invoke the <u>closed</u> event if one is opened or active</td>
+        </tr>        
         <tr>
             <td>refreshAccessToken(refreshToken: optional)</td>
             <td>nil</td>
