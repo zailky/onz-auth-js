@@ -10,7 +10,7 @@ OnzAuth's JS SDK for Passwordless Authentication using Email.
 <br />
 
 ## Questions
-Join our [Slack Community](https://join.slack.com/t/onzauth/shared_invite/zt-1409fdomu-aXZxoB14N8UZgh5Br98SKQ) 
+Join our [Slack Community](https://join.slack.com/t/onzauth/shared_invite/zt-196ryj3ar-rNWa1N0acoAQ0I7zMOKVGA) 
 
 ## Demo
 View the [Demo Application](https://zailky.github.io/onz-auth-js/demo/index.htm)
