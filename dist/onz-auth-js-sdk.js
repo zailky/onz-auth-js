@@ -12432,7 +12432,7 @@ var OnzLoginComponent = zoid_default().create({
   },
   autoResize: {
     width: false,
-    height: true
+    height: false
   },
   // The properties they can (or must) pass down to my component. This is optional.
   props: {
@@ -12570,6 +12570,7 @@ var Auth = /*#__PURE__*/function (_EventEmitter) {
     _this.clientID = options.clientID;
     _this.containerID = (_options$containerID = options.containerID) !== null && _options$containerID !== void 0 ? _options$containerID : 'container';
     _this.isIframe = !!options.isIframe ? 'iframe' : 'popup';
+    _this._currentComponent = null;
 
     _this._initialiseURL();
 
@@ -12599,6 +12600,8 @@ var Auth = /*#__PURE__*/function (_EventEmitter) {
         },
         onClose: function onClose() {
           _this2.emit(OnzEvents.OnClosed);
+
+          _this2._currentComponent = null;
         },
         onError: function onError(err) {
           var message = err && err.message ? err.message.toString() : err;
@@ -12663,12 +12666,45 @@ var Auth = /*#__PURE__*/function (_EventEmitter) {
   }, {
     key: "showLogin",
     value: function showLogin() {
-      this._newLoginComponent().render("#".concat(this.containerID), this.isIframe);
+      this._currentComponent = this._newLoginComponent();
+
+      this._currentComponent.render("#".concat(this.containerID), this.isIframe);
+    }
+  }, {
+    key: "isLoggingIn",
+    value: function isLoggingIn() {
+      return this._currentComponent;
+    }
+  }, {
+    key: "updateOptions",
+    value: function updateOptions(options) {
+      if (options.clientID && options.clientID !== this.clientID) {
+        this.clientID = options.clientID;
+      }
+
+      if (options.containerID && options.containerID !== this.containerID) {
+        this.containerID = options.containerID;
+      }
+
+      if (!!options.isIframe !== (this.isIframe === 'iframe')) {
+        this.isIframe = !!options.isIframe ? 'iframe' : 'popup';
+      }
+    }
+  }, {
+    key: "close",
+    value: function close() {
+      var _this4 = this;
+
+      if (this._currentComponent) {
+        this._currentComponent.close().then(function () {
+          _this4.emit(OnzEvents.OnClosed);
+        });
+      }
     }
   }, {
     key: "refreshAccessToken",
     value: function refreshAccessToken() {
-      var _this4 = this;
+      var _this5 = this;
 
       var refreshToken = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.getRefreshToken();
       var path = new URL('public/refresh', this.urls.IdpApiURL).href;
@@ -12677,15 +12713,15 @@ var Auth = /*#__PURE__*/function (_EventEmitter) {
         refreshToken: refreshToken
       }).then(function (response) {
         if (response.data) {
-          _this4._setSession(response.data);
+          _this5._setSession(response.data);
 
-          _this4.emit(OnzEvents.OnRefreshed, response.data);
+          _this5.emit(OnzEvents.OnRefreshed, response.data);
         }
       })["catch"](function (error) {
         if (error.response && error.response.data && error.response.data.message) {
-          _this4.emit(OnzEvents.OnError, error.response.data.message);
+          _this5.emit(OnzEvents.OnError, error.response.data.message);
         } else {
-          _this4.emit(OnzEvents.OnError, 'unknown-error');
+          _this5.emit(OnzEvents.OnError, 'unknown-error');
         }
       });
     }
