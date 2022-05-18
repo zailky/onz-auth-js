@@ -16,6 +16,8 @@ Join our [Slack Community](https://join.slack.com/t/onzauth/shared_invite/zt-196
 View the [Demo Application](https://zailky.github.io/onz-auth-js/demo/index.htm)
 
 Please refer to demo/index.htm for demo code
+
+`Note`: WebAuthN registration is seemless, so login users will only need to `confirm their emails the very first time only` when they register with WebAuthN, but will have a more seamless experience the second time onwards.
 <br />
 
 # Install
@@ -33,6 +35,8 @@ or
 # Quickstart
 
 You'll need a `CLIENT_ID`, which you can get by [creating a free account at OnzAuth](https://idp.onzauth.com).
+
+`WebAuthN` can be enabled in the settings options after project creation.  It is disabled by default.  
 
 
 ```javascript

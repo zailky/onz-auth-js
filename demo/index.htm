@@ -3,23 +3,49 @@
 <head>   
     <title>OnzAuth Demo</title>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://unpkg.com/onz-auth@1.0.20/dist/onz-auth-js-sdk.min.js"></script>    
 </head>
 
 <body>
-    <img src="https://github.com/zailky/onz-auth-js/raw/main/logotextdark.jpg" height="50px"/>
-    <h3>Log in to our sample domain</h3>
-    <div>
-        Please provide your email to test the magic link
+    <div class="text-center cover-container d-flex w-100 h-100 p-3 mx-auto flex-column p-3 mb-2 bg-dark text-white">
+        <main role="main" class="inner cover">
+            <img src="https://github.com/zailky/onz-auth-js/raw/main/logotextdark.jpg" height="50px" />
+            <h1 class="cover-heading">OnzAuth Demo</h1>
+            <p class="lead">Vanilla Javascript Implementation</p>
+            <h3>Log in to our sample domain</h3>
+            <div>
+                Please provide your email to test the magic link
+            </div>
+            <br />
+            <div class="row justify-content-center">
+                <button id="popupLogin" class="btn btn-lg btn-primary">Log In</button>
+                <button id="popupLogout" class="btn btn-lg btn-primary" style="display:none">Log Out</button>
+            </div>           
+        </main>
+        <br />
+        <hr/>
+        <footer class="mastfoot mt-auto">
+            <div class="inner">
+                <p>Demo login for <a href="https://tryonzauth.com/">OnzAuth</a>, SDK and Quickstart Instructions <a
+                        href="https://github.com/zailky/onz-auth-js">@github</a>.</p>
+            </div>
+            <p class="lead">
+                <a href="https://github.com/zailky/onz-auth-js" class="btn btn-secondary">Learn more</a>
+            </p>
+        </footer>
     </div>
     <br/>
-    <button id="popupLogin" class="btn btn-primary">Log In</button>
-    <button id="popupLogout" class="btn btn-primary" style="display:none">Log Out</button>
-    <div id="container"></div>
-    <div>
-        <pre id="result"></pre>
-        <pre id="result2"></pre>
+    <div id="container" class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column p-3 mb-2">
+        <div class="row justify-content-center">
+            <pre id="result"></pre>
+            <pre id="result2"></pre>
+        </div>
     </div>
+    
+
     <script>
         // Initialise the component
         const auth = new onz.Auth({
