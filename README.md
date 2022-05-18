@@ -5,11 +5,13 @@
 
 
 # OnzAuth JavaScript SDK
-OnzAuth's JS SDK for Passwordless Authentication using Email.
+OnzAuth's JS SDK for Passwordless Authentication using Email Magic Link and WebAuthN.
 
+Implement Authentication in 5 mins or less, straightforward support for magic link or WebAuthN, no passwords to manage, no callbacks to implement.  
 <br />
 
-## Questions
+
+## Questions?
 Join our [Slack Community](https://join.slack.com/t/onzauth/shared_invite/zt-196ryj3ar-rNWa1N0acoAQ0I7zMOKVGA) 
 
 ## Demo

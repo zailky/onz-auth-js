@@ -14,7 +14,9 @@
   },
   "keywords": [
     "login",
+    "signin",
     "authentication",
+    "authorisation",
     "signup",
     "openid",
     "auth",
@@ -24,7 +26,12 @@
     "magic",
     "magiclink",
     "saas",
-    "oauth"
+    "oauth",
+    "webauthn",
+    "fido",
+    "identity",
+    "idaas",
+    "oauth2"
   ],
   "author": "Zailky",
   "license": "MIT",
