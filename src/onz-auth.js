@@ -104,8 +104,16 @@ export class Auth extends EventEmitter {
     }
     
     showLogin() {
-        this._currentComponent = this._newLoginComponent();
-        this._currentComponent.render(`#${this.containerID}`, this.isIframe);
+        if (this._currentComponent) {
+            this._currentComponent.close().then(() => {
+                this.emit(OnzEvents.OnClosed);
+                this._currentComponent = this._newLoginComponent();
+                this._currentComponent.render(`#${this.containerID}`, this.isIframe);
+            });
+        } else {
+            this._currentComponent = this._newLoginComponent();
+            this._currentComponent.render(`#${this.containerID}`, this.isIframe);
+        }
     }
 
     isLoggingIn() {
