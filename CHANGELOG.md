@@ -1,3 +1,12 @@
+## [1.0.22](https://github.com/zailky/onz-auth-js/compare/v1.0.21...v1.0.22) (2022-05-18)
+
+
+### Bug Fixes
+
+* **login:** updated login dimension to support webauthn login button ([efad94c](https://github.com/zailky/onz-auth-js/commit/efad94c41204599d9a1b01023e0946485d5df6ea))
+* **webauthn:** updated demo and readme ([fe5c444](https://github.com/zailky/onz-auth-js/commit/fe5c4443cac4baae043c3ec1f5884a708e97ff94))
+* **webauthn:** Updated readme ([03a6c9a](https://github.com/zailky/onz-auth-js/commit/03a6c9ae558ed272d959961c30d2a627bebc9ecb))
+
 ## [1.0.21](https://github.com/zailky/onz-auth-js/compare/v1.0.20...v1.0.21) (2021-12-15)
 
 

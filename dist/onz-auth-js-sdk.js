@@ -12428,7 +12428,7 @@ var OnzLoginComponent = zoid_default().create({
   // The size of the component on their page. Only px and % strings are supported
   dimensions: {
     width: '350px',
-    height: '520px'
+    height: '550px'
   },
   autoResize: {
     width: false,
