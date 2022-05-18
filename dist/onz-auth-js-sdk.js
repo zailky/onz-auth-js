@@ -12666,9 +12666,21 @@ var Auth = /*#__PURE__*/function (_EventEmitter) {
   }, {
     key: "showLogin",
     value: function showLogin() {
-      this._currentComponent = this._newLoginComponent();
+      var _this4 = this;
 
-      this._currentComponent.render("#".concat(this.containerID), this.isIframe);
+      if (this._currentComponent) {
+        this._currentComponent.close().then(function () {
+          _this4.emit(OnzEvents.OnClosed);
+
+          _this4._currentComponent = _this4._newLoginComponent();
+
+          _this4._currentComponent.render("#".concat(_this4.containerID), _this4.isIframe);
+        });
+      } else {
+        this._currentComponent = this._newLoginComponent();
+
+        this._currentComponent.render("#".concat(this.containerID), this.isIframe);
+      }
     }
   }, {
     key: "isLoggingIn",
@@ -12693,18 +12705,18 @@ var Auth = /*#__PURE__*/function (_EventEmitter) {
   }, {
     key: "close",
     value: function close() {
-      var _this4 = this;
+      var _this5 = this;
 
       if (this._currentComponent) {
         this._currentComponent.close().then(function () {
-          _this4.emit(OnzEvents.OnClosed);
+          _this5.emit(OnzEvents.OnClosed);
         });
       }
     }
   }, {
     key: "refreshAccessToken",
     value: function refreshAccessToken() {
-      var _this5 = this;
+      var _this6 = this;
 
       var refreshToken = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.getRefreshToken();
       var path = new URL('public/refresh', this.urls.IdpApiURL).href;
@@ -12713,15 +12725,15 @@ var Auth = /*#__PURE__*/function (_EventEmitter) {
         refreshToken: refreshToken
       }).then(function (response) {
         if (response.data) {
-          _this5._setSession(response.data);
+          _this6._setSession(response.data);
 
-          _this5.emit(OnzEvents.OnRefreshed, response.data);
+          _this6.emit(OnzEvents.OnRefreshed, response.data);
         }
       })["catch"](function (error) {
         if (error.response && error.response.data && error.response.data.message) {
-          _this5.emit(OnzEvents.OnError, error.response.data.message);
+          _this6.emit(OnzEvents.OnError, error.response.data.message);
         } else {
-          _this5.emit(OnzEvents.OnError, 'unknown-error');
+          _this6.emit(OnzEvents.OnError, 'unknown-error');
         }
       });
     }
