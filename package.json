@@ -1,6 +1,6 @@
 {
   "name": "onz-auth",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "description": "Onz Auth Javascript SDK for Passwordless Authentication",
   "main": "dist/onz-auth-js-sdk.min.js",
   "scripts": {
