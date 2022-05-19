@@ -12,7 +12,7 @@ Implement Authentication in 5 mins or less, straightforward support for magic li
 
 
 ## Questions?
-Join our [Slack Community](https://join.slack.com/t/onzauth/shared_invite/zt-196ryj3ar-rNWa1N0acoAQ0I7zMOKVGA) 
+Join our [Slack Community](https://join.slack.com/t/onzauth/shared_invite/zt-196ryj3ar-ChOllgW2rQBEj7OcYcZQWw) 
 
 ## Demo
 View the [Demo Application](https://zailky.github.io/onz-auth-js/demo/index.htm)
