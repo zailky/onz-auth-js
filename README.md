@@ -114,7 +114,7 @@ auth.on("closed", () => {
             <td>isIframe</td>
             <td>boolean</td>
             <td>Optional</td>
-            <td>Value indicating whether it is a popup or an iframe, defaults to 'false'.  <br/>Note: iframe mode will not work with WebAuthN creation (registration), but registered user will be able to log in within an iframe.  <a href="https://www.w3.org/TR/webauthn-2/#sctn-iframe-guidance">More info</a>
+            <td>Value indicating whether it is a popup or an iframe, defaults to 'false'.  <br/>Note: iframe mode will not work with WebAuthN creation (registration), but registered (WebAuthN) users will be able to log in within an iframe.  <a href="https://www.w3.org/TR/webauthn-2/#sctn-iframe-guidance">More info</a>
             </td>
         </tr>                            
     </tbody>
