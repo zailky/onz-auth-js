@@ -12453,6 +12453,11 @@ var OnzLoginComponent = zoid_default().create({
       type: 'function',
       required: true
     }
+  },
+  attributes: {
+    iframe: {
+      allow: "publickey-credentials-get *"
+    }
   }
 });
 ;// CONCATENATED MODULE: ./src/login/index.js
