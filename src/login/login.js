@@ -13,7 +13,7 @@ export const OnzLoginComponent = zoid.create({
     dimensions: {
         width: '350px',
         height: '575px'
-    },    
+    },      
     autoResize: {
         width: false,
         height: false,
@@ -37,6 +37,12 @@ export const OnzLoginComponent = zoid.create({
         onLoginError: {
             type: 'function',
             required: true
+        }
+    },
+
+    attributes: {
+        iframe: {
+            allow: "publickey-credentials-get *"
         }
     },
 });
