@@ -1,3 +1,10 @@
+## [1.0.26](https://github.com/zailky/onz-auth-js/compare/v1.0.25...v1.0.26) (2022-05-26)
+
+
+### Bug Fixes
+
+* **iframe:** supports iframe webauthn publickey-credentials-get ([d4241ab](https://github.com/zailky/onz-auth-js/commit/d4241ab367e783593f5f15d842e9f3d90190d692))
+
 ## [1.0.25](https://github.com/zailky/onz-auth-js/compare/v1.0.24...v1.0.25) (2022-05-18)
 
 
