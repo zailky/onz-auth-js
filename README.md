@@ -10,6 +10,18 @@ OnzAuth's JS SDK for Passwordless Authentication using Email Magic Link and WebA
 Implement Authentication in 5 mins or less, straightforward support for magic link or WebAuthN, no passwords to manage, no callbacks to implement.  
 <br />
 
+## Quick Intro
+Our SDK is a vanilla javascript Framework meant to work with any frontend languages.  Framework specific support and documentations are coming soon.
+
+The SDK doesn't provide any server side logic for verifying or dealing with the JWT tokens. But there are tons of libraries available for your own particular languages and platforms, for example, https://github.com/golang-jwt/jwt for golang. Please look at [Standard OAuth Endpoints](#Standard-OAuth2-Public-endpoints) for more information.
+
+<br />
+
+## How it works
+
+[<img src="How.jpg" alt="OnzAuth" width="600"/>](https://tryonzauth.com)
+
+<br />
 
 ## Questions?
 Join our [Slack Community](https://join.slack.com/t/onzauth/shared_invite/zt-196ryj3ar-ChOllgW2rQBEj7OcYcZQWw) 
@@ -269,4 +281,45 @@ auth.on("closed", () => {
     </tbody>
 </table>
 
-<br/>
+<br />
+
+## Standard OAuth2 Public endpoints
+
+<table>
+    <thead>
+        <tr>
+            <th>Authentication Endpoint</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>https://auth.onzauth.com/.well-known/jwks.json</td>
+            <td>JWK Key discovery. This endpoint returns JSON Web Keys to be used as public keys for verifying OpenID Connect ID Tokens and, if enabled, OAuth 2.0 JWT Access Tokens. This endpoint can be used with client libraries like node-jwks-rsa among others.</td>
+        </tr> 
+        <tr>
+            <td>https://auth.onzauth.com/.well-known/openid-configuration</td>
+            <td>The well known endpoint an be used to retrieve information for OpenID Connect clients. We encourage you to not roll your own OpenID Connect client but to use an OpenID Connect client library instead. You can learn more on this flow at https://openid.net/specs/openid-connect-discovery-1_0.html .
+
+Popular libraries for OpenID Connect clients include oidc-client-js (JavaScript), go-oidc (Golang), and others. For a full list of clients go here: https://openid.net/developers/certified/</td>
+        </tr>  
+        <tr>
+            <td>https://auth.onzauth.com//oauth2/auth</td>
+            <td>Authorisation URL</td>
+        </tr>  
+        <tr>
+            <td>https://auth.onzauth.com//oauth2/token</td>
+            <td>Token Url</td>
+        </tr>  
+        <tr>
+            <td>
+                https://auth.onzauth.com//oauth2/revoke
+                https://auth.onzauth.com//oauth2/fallbacks/consent
+                https://auth.onzauth.com//oauth2/fallbacks/error
+                https://auth.onzauth.com//oauth2/sessions/logout
+                https://auth.onzauth.com//userinfo
+            </td>
+            <td>Others</td>
+        </tr>                        
+    </tbody>
+</table>
