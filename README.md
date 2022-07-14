@@ -17,23 +17,18 @@ The SDK doesn't provide any server side logic for verifying or dealing with the 
 
 <br />
 
-## How it works
-
-[<img src="How.jpg" alt="OnzAuth" width="600"/>](https://tryonzauth.com)
-
-<br />
-
 ## Questions?
 Join our [Slack Community](https://join.slack.com/t/onzauth/shared_invite/zt-196ryj3ar-ChOllgW2rQBEj7OcYcZQWw) 
 
+<br />
+
 ## Demo
+
 View the [Demo Application](https://zailky.github.io/onz-auth-js/demo/index.htm)
 
 Please refer to demo/index.htm for demo code
 
 `Note`: WebAuthN registration is seemless, so login users will only need to `confirm their emails the very first time only` when they register with WebAuthN, but will have a more seamless experience the second time onwards.
-
-<br />
 
 ## ReactJS and NodeJS Demo
 View the [Guide](https://medium.com/@onzauth/implementing-passwordless-webauthn-authentication-in-reactjs-and-nodejs-with-onzauth-a08750a8076b)
@@ -107,6 +102,12 @@ auth.on("closed", () => {
 });
 
 ```
+
+## How it works
+
+[<img src="How.jpg" alt="OnzAuth" width="600"/>](https://tryonzauth.com)
+
+<br />
 
 ## Options
 
