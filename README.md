@@ -36,11 +36,10 @@ View the [Guide](https://medium.com/@onzauth/implementing-passwordless-webauthn-
 Please refer to demo repository.
 [Repository](https://github.com/zailky/onz-auth-react-demo) for more information
 
+## Webflow Sample Guide
+View the [Webflow](webflow.md) guide
 
 <br />
-
-## Webflow Sample Guide
-View the [Webflow](webflow.md)
 
 # Install
 
