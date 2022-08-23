@@ -290,7 +290,7 @@ Awesome! We'll be dropping this Loader Symbol to all of the pages once they're c
 <br/>
 
 ### Test your code
-Awesome 🤩🪄! You’ve built a Simpe Site. To test the code, you’ll need to publish your site and visit the live url.
+Awesome 🤩! You’ve built a Simple Site with OnzAuth on Webflow. To test the code, you’ll need to publish your site and visit the live url.
 
 <br/>
 
