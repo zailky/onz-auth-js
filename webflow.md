@@ -26,7 +26,7 @@ View our completed [Demo](https://onzauth-webflow.webflow.io/)
 <br />
 
 ## OnzAuth Signup
-1. Sign up for an OnzAuth account [here](https://idp.onzauth.com/signin).
+1. Sign up for an OnzAuth account [here](https://tryonzauth.com).
 
 2. Create a new project and give it a name.  Please take note of the ClientID here or your can retrieve it later in the Project Overview Page.
 
