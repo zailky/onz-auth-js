@@ -20,8 +20,8 @@ In this tutorial you'll be building a simple blank site with a navigation bar us
 ## Questions?
 Join our [Slack Community](https://join.slack.com/t/onzauth/shared_invite/zt-196ryj3ar-ChOllgW2rQBEj7OcYcZQWw) 
 
-## Demo
-View our completed [Demo](https://onzauth-webflow.webflow.io/)
+<!-- ## Demo
+View our completed [Demo](https://onzauth-webflow.webflow.io/) -->
 
 <br />
 
