@@ -30,14 +30,28 @@ Please refer to demo/index.htm for demo code
 
 `Note`: WebAuthN registration is seemless, so login users will only need to `confirm their emails the very first time only` when they register with WebAuthN, but will have a more seamless experience the second time onwards.
 
-## ReactJS and NodeJS Demo
-View the [Guide](https://medium.com/@onzauth/implementing-passwordless-webauthn-authentication-in-reactjs-and-nodejs-with-onzauth-a08750a8076b)
+---
+
+## Sample Code and Plugins Guides
+
+---
+
+## **ReactJS and NodeJS** Demo
+> View the [Guide](https://medium.com/@onzauth/implementing-passwordless-webauthn-authentication-in-reactjs-and-nodejs-with-onzauth-a08750a8076b)
 
 Please refer to demo repository.
 [Repository](https://github.com/zailky/onz-auth-react-demo) for more information
 
-## Webflow Sample Guide
-View the [Webflow](webflow.md) guide
+## **Webflow** Sample Guide
+> View the [Webflow](webflow.md) guide
+
+
+## **WordPress Plugin** Setup Guide
+> View the [WordPress](wordpress.md) guide
+
+Please refer to plugin repository "Releases" tab to download the zip file.  
+* *Plugin has been submitted to the WordPress.org plugins directory, pending approval.*
+[Repository](https://github.com/zailky/wp-onzauth) for more information
 
 <br />
 
