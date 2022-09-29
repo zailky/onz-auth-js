@@ -6,7 +6,7 @@
 OnzAuth's WordPress Plugin Guide
 
 [<img src="logotextdark.jpg" alt="OnzAuth" width="150"/>](https://tryonzauth.com)  +
-[<img src="wordpress.png" alt="WordPress" width="150"/>](https://wordpress.org) 
+[<img src="wordpress.jpg" alt="WordPress" width="150"/>](https://wordpress.org) 
 
 <br />
 
@@ -68,4 +68,4 @@ Join our [Slack Community](https://join.slack.com/t/onzauth/shared_invite/zt-196
 <br/>
 
 ## Recommendations
-This plugin will support both HTTP and HTTPS version of wordpress.  Please make sure to enable SSL certificate to your server for your production server.
+This plugin will support both HTTP and HTTPS version of WordPress.  Please make sure to enable SSL certificate to your production server.
