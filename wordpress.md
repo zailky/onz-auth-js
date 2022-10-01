@@ -22,6 +22,12 @@ To install or customize plugins, you must use a self-hosted WordPress.org site. 
 
 <br />
 
+## Plugin Download
+The plugin is not available in the plugins directory yet, pending approval.  Please download it manually here https://github.com/zailky/wp-onzauth/releases
+
+Install guide https://github.com/zailky/wp-onzauth
+
+<br />
 
 This plugin can be added to your WordPress site using the Plugins screen in the wp-admin:
 
