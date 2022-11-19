@@ -49,9 +49,9 @@ Please refer to demo repository.
 ## **WordPress Plugin** Setup Guide
 > View the [WordPress](wordpress.md) guide
 
-Please refer to plugin repository "Releases" tab to download the zip file.  
-* *Plugin has been submitted to the WordPress.org plugins directory, pending approval.*
-[Repository](https://github.com/zailky/wp-onzauth) for more information
+Please refer to plugin repository "Releases" tab to download the zip file or download it directly from the [Wordpress Plugins](https://wordpress.org/plugins/onzauth/)
+
+[Git Repository](https://github.com/zailky/wp-onzauth) for the plugin
 
 <br />
 
