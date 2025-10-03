@@ -53,6 +53,13 @@ Please refer to plugin repository "Releases" tab to download the zip file or dow
 
 [Git Repository](https://github.com/zailky/wp-onzauth) for the plugin
 
+
+## **5 Mins** Basic Html Setup Guide
+
+[<img src="images/youtube-video.jpg" alt="OnzAuth" width="500"/>](https://youtu.be/BHr3Ij2kZf4 "5 Mins Walkthrough") 
+
+[5 mins walkthrough video](https://youtu.be/BHr3Ij2kZf4)
+
 <br />
 
 # Install
